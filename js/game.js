@@ -6,7 +6,7 @@ class Game {
         this.height=canvas.height;
         this.player = new Player(this);
        // this.player.setControls(); // <-- NO NEED FOR THIS LINE, came from Gui´s code
-        this.gameOn = true;
+       this.gameOn = true;
         this.animationId;
         this.frame = 0;
 
@@ -49,21 +49,22 @@ class Game {
     }
 
     update() {
-        this.player.update();
+        this.player.update();       
         this.ball.update(); // <-- Change in game.js to introduce the ball
+        if(this.player.crashPaddleBall(this.ball)) {
+            this.ball.vy = - this.ball.vy;
+           // console.log("WENT THROUGH if CONDITION WHERS VELO IS REDEFINED")
+        } 
         this.frame++;
-        console.log(`frame number ${this.frame}`)
-        if(this.frame > 100) {
+       // console.log(`frame number ${this.frame}`)
+        if(this.frame > 800) {
             this.gameOn = false;
-        }   
-        
+        }      
     }
 
     gameOver() {
         this.context.fillText("Game Over", this.width/2, this.height/2);
     }
-
-    
 }
 
 
