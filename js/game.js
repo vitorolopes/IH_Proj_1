@@ -5,25 +5,28 @@ class Game {
         this.width=canvas.width;
         this.height=canvas.height;
         this.player = new Player(this);
-        this.player.setControls(); 
+       // this.player.setControls(); // <-- NO NEED FOR THIS LINE, came from Gui´s code
         this.gameOn = true;
         this.animationId;
-
         this.frame = 0;
+
+        this.ball = new Ball(this) // <-- Change in game.js to introduce the ball
+        // this.ball.draw();  // <-- NO NEED FOR THIS LINE
     }
    
     start() {
         console.log("Game Started");
+        // this.ball.draw(); -->Working, comment this.reset() and this.animation() to see it
         this.reset();
         this.animation();
     }
 
-
     reset() {
         this.player = new Player(this);
+        this.ball = new Ball(this); // <-- Change in game.js to introduce the ball
         this.player.setControls();
         this.frame = 0;
-        this.gameOn = true;
+        this.gameOn = true;       
     }
 
     animation() {
@@ -42,15 +45,17 @@ class Game {
     draw() {
         this.context.clearRect(0, 0, this.width, this.height); // clears the whole canvas
         this.player.draw();
+        this.ball.draw(); // <-- Change in game.js to introduce the ball
     }
 
     update() {
         this.player.update();
+        this.ball.update(); // <-- Change in game.js to introduce the ball
         this.frame++;
         console.log(`frame number ${this.frame}`)
-        if(this.frame > 1000) {
+        if(this.frame > 100) {
             this.gameOn = false;
-        }
+        }   
         
     }
 

@@ -40,22 +40,17 @@ class Player {
             this.x = 0;
         }
         console.log(`${this.x}`)
-                
+        
+        
         this.x += this.speedR; // updates the position
         if (this.x + this.width > game.width){ // prevents the paddle of getting out of the canvas
         this.x = game.width-this.width;
         }
         console.log(`${this.x}`)
        }
-
 }
 
 
 
-// // 2 -Clearing the canvas 
-// this.context.clearRect(0,0,400,600)
-// // clears a rectangle. in an animation you want to clear everything before the next frame gets drawn
-// // 1- Drawing on the canvas
-// this.context.fillStyle="blue"
-// this.context.fillRect(0,0,5,5)
+
 
