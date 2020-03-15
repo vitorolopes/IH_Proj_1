@@ -24,6 +24,7 @@ class Game {
     reset() {
         this.player = new Player(this);
         this.ball = new Ball(this); // <-- Change in game.js to introduce the ball
+        this.brick = new Brick(this); // <-- Change in game.js to introduce the bricks
         this.player.setControls();
         this.frame = 0;
         this.gameOn = true;       
@@ -46,6 +47,7 @@ class Game {
         this.context.clearRect(0, 0, this.width, this.height); // clears the whole canvas
         this.player.draw();
         this.ball.draw(); // <-- Change in game.js to introduce the ball
+        this.brick.draw(); // <-- Change in game.js to introduce the bricks
     }
 
     update() {
