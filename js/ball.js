@@ -26,11 +26,13 @@ class Ball {
        // console.log("ball.draw was called")
        // console.log(`${this.x}`)
         // console.log(`${this.y}`)
+        this.context.save();
         this.context.beginPath();
         this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         this.context.closePath();
         this.context.fillStyle = this.color;
         this.context.fill();
+        this.context.restore();
     }
 
     update() {

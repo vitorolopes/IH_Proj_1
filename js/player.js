@@ -11,12 +11,15 @@ class Player {
     }
 
     draw() {
-         // this.context.clearRect(this.x,this.y,this.width,this.height) // clears the paddle
+       
+        this.context.save();
+        // this.context.clearRect(this.x,this.y,this.width,this.height) // clears the paddle
         this.context.fillStyle="blue";
         // this.context.fillRect(0,0,10,50);
         this.context.fillRect(this.x,this.y,this.width,this.height);
         // this.context.fillStyle="green";
         // this.context.fillRect(this.x,this.y,5,5);
+        this.context.restore();
     }
 
     setControls() {
