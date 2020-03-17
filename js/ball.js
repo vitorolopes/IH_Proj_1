@@ -7,18 +7,16 @@ class Ball {
         this.width = game.width;
         this.x = this.radius + Math.floor(Math.random() * (this.width-2*this.radius)) // add 1 and subtract 2 to avoid the ball being launched from the 2 top corners
         // this.y = 100;
-        this.y = this.radius;
+        this.y = this.radius + 3 * 30; // 3 layers * brick.height QUESTION: How could I define the initial y position in function of brick.height???
         this.color = "red";
-        // this.vx = 1;
         // randomize the sign of initial vx
         this.sign;
-        if (this.x % 2 ===0) {
+        if (this.x % 2 === 0) {
             this.sign = 1
         } else {
             this.sign = -1
         }
-        // this.vx = this.sign * 3;
-        this.vx = 3;
+        this.vx = this.sign * 3;
         this.vy = 3;
     }   
 
@@ -47,16 +45,28 @@ class Ball {
           }
     }
 
+
+    top() {
+        return this.y - this.radius
+    }
     bottom () {
         return this.y + this.radius;
     } 
     left (){
-        return this.x;
+        return this.x - this. radius;
     }  
     right(){
-        return this.x ;
+        return this.x + this.radius;
+    }
+
+    crashBallBrick(brick) {
+        console.log("crashBallBrick was called")
+        if (this.top() <= brick.bottom() && this.right() <= brick.right() && this.bottom() >= brick.top() && this.left() >= brick.left()) {
+            console.log("if cond of crashBallBrick was satisfied")
+            this.vy *= -1;
+            return true
+        
+    }
     }
 }
-
-
 
