@@ -1,3 +1,13 @@
+body {
+    padding: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+  }
+
+
 canvas {
     border-top: 1px solid black;
     border-left: 1px solid black;
@@ -7,3 +17,38 @@ canvas {
 #img_brick{
     display: none;
 }
+
+
+  body button {
+    font-size: 30px;
+    background-color: #870007;
+    color: #fff;
+    padding: 20px 40px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+ .arrows-img {
+    height: auto;
+    width: auto;
+    max-width: 200px; /*USE min-width and min-height TO INCREASE SIZE and max-width and max-height TO DECREASE SIZE;*/
+    max-height: 200px
+ }
+
+ .logo-img {
+    height: auto;
+    width: auto;
+    max-width: 300px; /*USE min-width and min-height TO INCREASE SIZE and max-width and max-height TO DECREASE SIZE;*/
+    max-height: 300px;
+    padding: 20px;
+ }
+
+ .game-intro {
+     display: flex;
+     flex-direction: column;
+     align-content: space-around;
+     align-items: center;
+ }

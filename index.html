@@ -7,8 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img id="img_brick" src="./images/brick_1.jpg" alt="">
-    <canvas width="400px" height="600px"></canvas>
+    <div class="game-intro">
+        <img src="./images/arkanoid_logo.png" alt="" class="logo-img" />
+        <br />
+        <button id="start-button">StartGame</button>
+        <p>Use the left and right arrow to control the paddle!</p>
+        <img src="./images/arrow_keys.jpg" alt="" class="arrows-img" />
+      </div>
+
+    <div id="game-board">
+        <img id="img_brick" src="./images/brick_1.jpg" alt="">
+        <canvas width="400px" height="600px"></canvas> 
+    </div>
+    
+    
+
     <script src="./js/bricks.js"></script>
     <script src="./js/ball.js"></script>
     <script src="./js/player.js"></script>
