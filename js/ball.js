@@ -40,9 +40,15 @@ class Ball {
         if (this.x + this.radius + this.vx > canvas.width || this.x - this.radius + this.vx < 0) {
             this.vx *= -1; // add and subtract radius to avoid that weird effect that part of the ball goes out of the canvas
           }
-        if (this.y + this.radius + this.vy > canvas.height || this.y -this.radius + this.vy < 0) {
-            this.vy *= -1; // this if condition will be removed later on. Otherwise the game wouldn´t ever end.
-          }
+        // if (this.y + this.radius + this.vy > canvas.height || this.y -this.radius + this.vy < 0) {
+        //     this.vy *= -1; // this if condition will be removed later on. Otherwise the game wouldn´t ever end.
+        //   }
+        if ( this.y -this.radius + this.vy < 0) {
+            this.vy *= -1; 
+          }     
+        // if (this.y + this.radius + this.vy > canvas.height) {
+        //      this.game.gameOn = false;
+        //   } //--> Trying to set game.gameOn to false from here is not going to work see didBallEscape()
     }
 
 
@@ -60,13 +66,17 @@ class Ball {
     }
 
     crashBallBrick(brick) {
-        console.log("crashBallBrick was called")
-        if (this.top() <= brick.bottom() && this.right() <= brick.right() && this.bottom() >= brick.top() && this.left() >= brick.left()) {
-            console.log("if cond of crashBallBrick was satisfied")
-            this.vy *= -1;
-            return true
-        
+        // console.log("crashBallBrick was called")
+    //     if (this.top() <= brick.bottom() && this.right() <= brick.right() && this.bottom() >= brick.top() && this.left() >= brick.left()) {
+    //       //  console.log("if cond of crashBallBrick was satisfied")
+    //         this.vy *= -1;
+    //         return true 
+    // }
+            return this.top() <= brick.bottom() && this.right() <= brick.right() && this.bottom() >= brick.top() && this.left() >= brick.left()
     }
+    
+    didBallEscape(){
+        return this.y - this.radius > canvas.height;
     }
 }
 

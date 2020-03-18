@@ -30,6 +30,10 @@ canvas {
     margin-bottom: 20px;
     margin-top: 20px;
   }
+
+  body p {
+
+  }
   
  .arrows-img {
     height: auto;
@@ -52,3 +56,8 @@ canvas {
      align-content: space-around;
      align-items: center;
  }
+
+ .game-intro p {
+    font-size: 25px;
+    font-family: "Verdana";
+  }

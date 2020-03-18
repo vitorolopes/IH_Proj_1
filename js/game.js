@@ -32,7 +32,7 @@ class Game {
     let rows = 3; let width = 40; let height = 30;
     for (let j = 0; j < rows; j++){
         let y = (j * height)
-        for(let i = 0; i < 10; i++) { // replace 10 for this.width/this.brick.width (400/40 =10)
+        for(let i = 4; i < 6; i++) { // replace 10 for this.width/this.brick.width (400/40 =10)
         let x = (i * width);
         this.bricks.push(new Brick(game, x, y, width, height));
         // console.log(this.bricks)
@@ -45,8 +45,11 @@ class Game {
         this.draw();
         this.update();
         this.animationId = window.requestAnimationFrame(() => {
-            if (this.gameOn) {
+            if(this.bricks.length === 0){
+                this.youWin();
+            } else if (this.gameOn) {
                 this.animation();
+                console.log(this.bricks.length)
             } else {
                 this.gameOver();
             }
@@ -66,7 +69,6 @@ class Game {
     update() {
         this.player.update();       
         this.ball.update(); // <-- Change in game.js to introduce the ball
-
         if(this.player.crashPaddleBall(this.ball)) {
             this.ball.vy = - this.ball.vy;
            // console.log("WENT THROUGH if CONDITION WHERS VELO IS REDEFINED")
@@ -74,18 +76,25 @@ class Game {
 
         for (let i = 0; i < this.bricks.length; i++){
             if(this.ball.crashBallBrick(this.bricks[i])) {
-                console.log("trying to remove the hitten bricks")
+                // console.log("trying to remove the hitten bricks")
                 this.bricks.splice(i, 1);
+                this.ball.vy = this.ball.vy * (-1)
             }
         }
 
         this.frame++;
        // console.log(`frame number ${this.frame}`)
-        if(this.frame > 800) {
+        // if(this.frame > 800) {
+        //     this.gameOn = false;
+        // }      
+        if(this.ball.didBallEscape(this.ball)){ // notice that I had to give the argument this.ball to didBalEscape. Otherwise it would not work.
             this.gameOn = false;
-        }      
+        }
     }
 
+    youWin() {
+        this.context.fillText("Congrats you won", this.width/2, this.height/2);
+    }
     gameOver() {
         this.context.fillText("Game Over", this.width/2, this.height/2);
     }
