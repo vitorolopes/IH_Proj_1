@@ -8,12 +8,21 @@
 </head>
 <body>
     <div class="game-intro">
+
         <img src="./images/arkanoid_logo.png" alt="" class="logo-img" />
         <br />
-        <button id="start-button">StartGame</button>
+      <div id="buttons">
+          <button id="start-button">StartGame</button>
+          <button id="continue-button">ContinueGame</button> <!--button hidden during Arka.-->
+      </div>
+        
+
         <p>Use the left and right arrow to control the paddle!</p>
         <img src="./images/arrow_keys.jpg" alt="" class="arrows-img" />
-      </div>
+      
+    </div>
+
+
 
     <div id="game-board">
         <img id="img_brick" src="./images/brick_1.jpg" alt="">
@@ -21,7 +30,7 @@
     </div>
     
     
-
+    <script src="./js/quiz.js"></script>
     <script src="./js/bricks.js"></script>
     <script src="./js/ball.js"></script>
     <script src="./js/player.js"></script>

@@ -11,10 +11,12 @@ class Game {
         this.frame = 0;
         this.ball = new Ball(this) // <-- Change in game.js to introduce the ball
         this.bricks = []; // <-- Change in game.js to introduce the bricks (this.obstacle = new Obstacle(this))   
+        this.quiz = new Quiz(this) // <-- Change in game.js to introduce the quiz
     }
    
     start() {
         console.log("Game Started");
+        document.getElementById("continue-button").style.display = "none";
         this.reset();
         this.animation();
     }
@@ -97,7 +99,13 @@ class Game {
         this.context.fillText("Congrats you won", this.width/2, this.height/2);
     }
     gameOver() {
-        this.context.fillText("Game Over", this.width/2, this.height/2);
+        this.context.fillText("Game Over ... or not ... to keep playing this game hit the ContinueButton", 50, this.height/2);
+        document.getElementById("continue-button").style.display = "block";
+
+        const continueGame = document.querySelector("#continue-button")
+        continueGame.addEventListener('click', () => {
+        this.quiz.start();
+       });
     }
 }
 
