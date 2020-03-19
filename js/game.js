@@ -46,6 +46,7 @@ class Game {
         this.update();
         this.animationId = window.requestAnimationFrame(() => {
             if(this.bricks.length === 0){
+                this.draw();
                 this.youWin();
             } else if (this.gameOn) {
                 this.animation();
