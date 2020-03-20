@@ -17,6 +17,7 @@ class Game {
     start() {
         console.log("Game Started");
         document.getElementById("continue-button").style.display = "none";
+       //  document.getElementById("quiz-div").style.display = "none";
         this.reset();
         this.animation();
     }
