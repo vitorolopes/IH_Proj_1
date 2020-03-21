@@ -45,6 +45,7 @@ class Game {
 }
 
     animation() {
+        console.log("animation was called")
         this.draw();
         this.update();
         this.animationId = window.requestAnimationFrame(() => {
@@ -99,6 +100,7 @@ class Game {
     youWin() {
         this.context.fillText("Congrats you won", this.width/2, this.height/2);
     }
+
     gameOver() {
         this.context.fillText("Game Over ... or not ... to keep playing this game hit the ContinueButton", 50, this.height/2);
         document.getElementById("continue-button").style.display = "block";
@@ -106,8 +108,24 @@ class Game {
         const continueGame = document.querySelector("#continue-button")
         continueGame.addEventListener('click', () => {
         this.quiz.start();
+        if(this.quiz.checkAnswer()){
+            // this.ball(new Ball(this)) 
+            // this.continue() 
+            this.gameOn = true;
+            this.animation(new Ball(this)); // --> Drop the ball again. I just need to create a new Ball
+            console.log("game-over-->animation was called")
+            console.log(`${this.ball.x}`)
+            console.log(`${this.ball.y}`)
+         } else {
+             console.log("Now it's really over")
+         }
        });
+
+
+      
+    
     }
+
 }
 
 

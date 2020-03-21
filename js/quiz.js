@@ -1,17 +1,26 @@
 class Quiz {
     constructor(game){
-            this.context=game.context;
-            this.width = game.width;
-            this.height = game.height;  
+           
      }
     start(){
-        // this.context.clearRect(0, 0, this.width, this.height);
-        // this.context.fillStyle="green";
-        // this.context.fillRect(100,100,100,100);
         // console.log("Lets start the Quiz");
         document.getElementById("canvas").style.display = "none";
         document.getElementById("quiz-container").style.display = "flex";
-       // document.getElementsByClassName("controls").style.display = "block";
+       
+        // Define the variables we are going to need (DOM manipulation)
+                const questionContainerElement = document.getElementById('question-container')
+                const questionElement = document.getElementById('question')
+                const isWrightOrWrong = document.getElementById('wright-wrong')
+                const answerButtonsElement = document.getElementById('answer-buttons')
+                const startButton = document.getElementById('start-btn')
+                const nextButton = document.getElementById('next-btn')
+    }
+
+    checkAnswer() {
+        console.log("checkAnswer was called")
+        document.getElementById("canvas").style.display = "block";
+        document.getElementById("quiz-container").style.display = "none";
+        return true;
     }
 
 }
