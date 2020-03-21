@@ -27,9 +27,26 @@
     <div id="game-board">
         <img id="img_brick" src="./images/brick_1.jpg" alt="">
         <canvas id="canvas" width="400px" height="600px"></canvas> 
-        <div id="quiz-div">
-            <p>this is the quiz-div</p>
+        
+        
+        <div id="quiz-container" class="hide">
+            <div id="question-container">   <!-- class="hide" -->
+                <div id="question">Question</div>
+                <div id="wright-wrong" class="hide">You got it right/Wrong answer</div>
+                <div id="answer-buttons" class="btn-grid">
+                  <button class="btn">Answer 1</button>
+                  <button class="btn">Answer 2</button>
+                  <button class="btn">Answer 3</button>
+                  <button class="btn">Answer 4</button>
+                </div>
+            </div>
+            <div class="controls">
+                 <button id="start-btn" class="start-btn btn">Start</button>
+                 <button id="next-btn" class="next-btn btn hide">Next</button>
+            </div>
         </div>
+        
+
     </div>
     
     

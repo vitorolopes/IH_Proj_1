@@ -10,7 +10,8 @@ class Quiz {
         // this.context.fillRect(100,100,100,100);
         // console.log("Lets start the Quiz");
         document.getElementById("canvas").style.display = "none";
-        document.getElementById("quiz-div").style.display = "block";
+        document.getElementById("quiz-container").style.display = "flex";
+       // document.getElementsByClassName("controls").style.display = "block";
     }
 
 }

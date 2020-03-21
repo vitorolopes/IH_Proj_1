@@ -89,10 +89,65 @@ canvas {
     border: 1px dotted green;
   } */
 
-  #quiz-div {
+  #quiz-container {
     width: 400px;
     height: 600px;
     border: 1px solid red;
-    display: none;
+    background-color: silver;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
- 
+
+ #question {
+   border: 2px solid yellow;
+   margin-bottom: 20px;
+ }
+
+ #wright-wrong{
+   border: 2px solid green;
+   margin-bottom: 20px;
+ }
+
+
+  .btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+
+
+.hide{  
+  display: none;
+}
+/*Are hidden by default  button id="next-btn" and div id="wright-wrong"*/
+
+.btn {
+  border: 2px solid yellow ;
+  background-color: blue;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  /* outline: none; */
+}
+
+.btn:hover {
+  border-color: black;
+}
+
+ .controls {
+  display: flex;
+  justify-content: center;/*center option to justify and align because only one of the buttons is going to appear each time*/
+  align-items: center;
+}
+
+
+.start-btn, .next-btn {
+  font-size: 1 rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+
