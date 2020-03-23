@@ -17,10 +17,10 @@ class Quiz {
     }
 
     checkAnswer() {
-        console.log("checkAnswer was called")
-        document.getElementById("canvas").style.display = "block";
-        document.getElementById("quiz-container").style.display = "none";
-        return true;
+        // document.getElementById("canvas").style.display = "block";
+        // document.getElementById("quiz-container").style.display = "none";
+        // return true;
+        console.log("I am not returning nothing ... I am fucking greedy!!!!!")
     }
 
 }

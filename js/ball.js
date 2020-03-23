@@ -78,5 +78,15 @@ class Ball {
     didBallEscape(){
         return this.y - this.radius > canvas.height;
     }
+
+    reset() {
+        // resets the ball to it's original position after ansering the Quiz.
+        this.x =
+        this.radius + Math.floor(Math.random() * (this.width - 2 * this.radius));
+        this.y = this.radius + 3 * 30;
+      }
+      
+    
+
 }
 
