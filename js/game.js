@@ -108,6 +108,8 @@ class Game {
         continueGame.addEventListener('click', () => {
         this.quiz.start();
         if(this.quiz.checkAnswer()){
+        // document.getElementById("canvas").style.display = "block";
+        // document.getElementById("quiz-container").style.display = "none";
             this.gameOn = true;
             this.ball.reset();
             this.animation();          
