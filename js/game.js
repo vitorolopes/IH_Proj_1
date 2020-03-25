@@ -5,7 +5,6 @@ class Game {
         this.width=canvas.width;
         this.height=canvas.height;
         this.player = new Player(this);
-       // this.player.setControls(); // <-- NO NEED FOR THIS LINE, came from Gui´s code
         this.gameOn = true;
         this.animationId;
         this.frame = 0;
@@ -15,9 +14,8 @@ class Game {
     }
    
     start() {
-        console.log("Game Started");
+       // console.log("Game Started");
         document.getElementById("continue-button").style.display = "none";
-       //  document.getElementById("quiz-div").style.display = "none";
         this.reset();
         this.animation();
     }
@@ -38,8 +36,6 @@ class Game {
         for(let i = 4; i < 6; i++) { // replace 10 for this.width/this.brick.width (400/40 =10)
         let x = (i * width);
         this.bricks.push(new Brick(game, x, y, width, height));
-        // console.log(this.bricks)
-        // console.log(x)
     } 
   }
 }
@@ -53,7 +49,6 @@ class Game {
                 this.youWin();
             } else if (this.gameOn) {
                 this.animation();
-                // console.log(this.bricks.length)
             } else {
                 this.gameOver();
             }
@@ -75,22 +70,16 @@ class Game {
         this.ball.update(); // <-- Change in game.js to introduce the ball
         if(this.player.crashPaddleBall(this.ball)) {
             this.ball.vy = - this.ball.vy;
-           // console.log("WENT THROUGH if CONDITION WHERS VELO IS REDEFINED")
         } 
 
         for (let i = 0; i < this.bricks.length; i++){
             if(this.ball.crashBallBrick(this.bricks[i])) {
-                // console.log("trying to remove the hitten bricks")
                 this.bricks.splice(i, 1);
                 this.ball.vy = this.ball.vy * (-1)
             }
         }
 
-        this.frame++;
-       // console.log(`frame number ${this.frame}`)
-        // if(this.frame > 800) {
-        //     this.gameOn = false;
-        // }      
+        this.frame++;     
         if(this.ball.didBallEscape(this.ball)){ // notice that I had to give the argument this.ball to didBalEscape. Otherwise it would not work.
             this.gameOn = false;
         }
@@ -101,28 +90,25 @@ class Game {
     }
 
     gameOver() {
-        this.context.fillText("Game Over ... or not ... to keep playing this game hit the ContinueButton", 50, this.height/2);
+        this.context.fillText("     Game Over ... or not ... to keep playing this game" , 50, this.height/2);
+        this.context.fillText("hit the GoToQuiz button and try to answer the question", 50, this.height/2 + 10);
         document.getElementById("continue-button").style.display = "block";
 
         const continueGame = document.querySelector("#continue-button")
         continueGame.addEventListener('click', () => {
-        this.quiz.start();
+        this.quiz.start()   
         if(this.quiz.checkAnswer()){
-        // document.getElementById("canvas").style.display = "block";
-        // document.getElementById("quiz-container").style.display = "none";
+        document.getElementById("canvas").style.display = "block";
+        document.getElementById("quiz-container").style.display = "none";
             this.gameOn = true;
             this.ball.reset();
             this.animation();          
          } else {
              console.log("Now it's really over")
+             document.getElementById("continue-button").style.display = "none";
          }
-       });
-
-
-      
-    
+    });
     }
-
 }
 
 

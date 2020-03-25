@@ -1,5 +1,5 @@
 class Question {
-    constructor(question, answers,game){
+    constructor(question, answers, game){
         this.question = question;
         this.answers = answers;
         this.startButton = document.getElementById('start-btn')
@@ -7,23 +7,20 @@ class Question {
         this.questionContainerElement = document.getElementById('question-container')
         this.questionElement = document.getElementById('question')
         this.answerButtonsElement = document.getElementById('answer-buttons')
+        this.wrightWrongElement = document.getElementById('wright-wrong')
     }
 
 startQuiz() {
 this.startButton.classList.add("hide")
 this.questionContainerElement.classList.remove("hide")
 this.createQuestionsArray()
-// if(Math.random() < 0.5){
-//   this.index = 0
-// } else {
-//   this.index = 1
-// }
 this.setNextQuestion()
+if(this.showQuestion()){
+  return true
+}
 }
 
 createQuestionsArray(){
-    //////////////////////////////////////////////////////////////////////
-// create questions
 this.questions = [                                          
     new Question('Who wrote The Little Prince?', [
         { text: 'Dostoyevsky', correct: false },
@@ -38,15 +35,13 @@ this.questions = [
         { text: 'Jack of all trades', correct: false }
       ])
 ];
-console.log(this.questions)
-console.log(this.questions[1].question) // --->>>>>>>>>> OK consigo aceder à variavel questions.
+// console.log(this.questions)
+// console.log(this.questions[1].question) // --->>>>>>>>>> OK consigo aceder à variavel questions.
 }
-
 
 setNextQuestion() {
 this.resetState()                 
-console.log(this.questions[1].question) // --->>>>>>>>>> OK daqui também consigo aceder à variavel questions.
-this.showQuestion() 
+// console.log(this.questions[1].question) // --->>>>>>>>>> OK daqui também consigo aceder à variavel questions.
 }
 
 resetState(){
@@ -54,7 +49,6 @@ resetState(){
         this.answerButtonsElement.removeChild(this.answerButtonsElement.firstChild)  // removes all the "default" buttons
       }
 }
-
 
 showQuestion() { 
     this.questionElement.innerText = this.questions[1].question // substitute later on for a random index
@@ -67,27 +61,42 @@ showQuestion() {
         }
         this.answerButtonsElement.appendChild(button) // appends each one of the new buttons to the div "answer-buttons" 
         button.addEventListener('click', this.selectedAnswer) // sets an event listener for each one of the buttons
-         console.log("showQuestion was called")
-    })
-   // console.log (this.questionElement.innerText)
-}
-
-selectedAnswer(e) {
-// VER   line 67   // button.addEventListener('click', this.selectAnswer) 
-  console.log("selectedAnswer was called")
-  const selectedButton = e.target // this is the button that was selected with the click line 69 button.addEventListener('click', this.selectAnswer) 
-  console.log(selectedButton)
-  if (selectedButton.dataset.correct==="true"){
-    console.log("call quiz.checkAnswer()")
-    return true
-  } else { 
-    console.log("cal game-reaaaaaaaaaaaally over")
-    return false
- 
+        //setTimeout( function () {button.addEventListener('click', this.selectedAnswer)}, 5000 )
+        console.log("showQuestion was called")     
+    })   
+    // this.wrightWrongElement.classList.remove("hide") // WHY doesn't this work inside selectedAnswer()??????
+    // this.wrightWrongElement.style.color = "green" // BUT if I write instead   document.getElementById('wright-wrong').classList.remove("hide") it works!!!
+    // console.log(this.answerButtonsElement)
   }
 
+selectedAnswer(e) {
+  console.log("selectedAnswer was called")
+  const selectedButton = e.target // this is the button that was selected with the click line 69 button.addEventListener('click', this.selectAnswer) 
+  document.getElementById('chosen-option').classList.remove("hide")
+  document.getElementById('chosen-option').innerText = `Your choice was: ${selectedButton.innerText}`
+  console.log(selectedButton.innerText)
+ // console.log(selectedButton)
+  if (selectedButton.dataset.correct==="true"){
+ //  console.log("call quiz.checkAnswer()")
+    document.getElementById('wright-wrong').classList.remove("hide")
+    document.getElementById("wright-wrong").innerText = "You got it right"
+    document.getElementById('wright-wrong').style.color = "green"
+    document.getElementById('wright-wrong').style.borderColor = "green";
+    this.buttonBackToArka = document.getElementById("back-arka")
+    this.buttonBackToArka.classList.remove("hide")
+    this.buttonBackToArka.addEventListener('click', function () {
+    console.log("GoBackToArka button was hit")
+    return true
+    }); 
+  } else { 
+    document.getElementById('wright-wrong').classList.remove("hide")
+    document.getElementById("wright-wrong").innerText = "Wrong answer"
+    document.getElementById('wright-wrong').style.color = "red"
+    document.getElementById('wright-wrong').style.borderColor = "red";
+    console.log("game-reaaaaaaaaaaaally over. Start a new Arkanoid game (from the beggining)")
+    return false
+  }
 }
-
 }
 
 
