@@ -10,10 +10,10 @@ class Quiz {
     checkAnswer() {
      if(this.question.startQuiz()) {
         console.log("I am on my way back and I am returning TRUE")
-        return true; 
+       // return true; 
      } else {
         console.log("I am on my way back and I am returning FALSE")
-        return false;
+      //  return false;
      } 
     }
 }

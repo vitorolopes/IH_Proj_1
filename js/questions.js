@@ -14,10 +14,9 @@ startQuiz() {
 this.startButton.classList.add("hide")
 this.questionContainerElement.classList.remove("hide")
 this.createQuestionsArray()
+this.index = Math.floor(Math.random() * this.questions.length)
 this.setNextQuestion()
-if(this.showQuestion()){
-  return true
-}
+this.showQuestion()
 }
 
 createQuestionsArray(){
@@ -33,15 +32,24 @@ this.questions = [
         { text: 'Jack Johnson', correct: true },
         { text: 'Jack the Ripper', correct: false },
         { text: 'Jack of all trades', correct: false }
-      ])
+      ]),
+    new Question ('What is a Kraken?', [
+        { text: 'A mythological giant octopus', correct: true },
+        { text: 'A monster Hercules slayed', correct: false },
+        { text: 'A virus', correct: false },
+        { text: 'A very good football player', correct: false }
+      ]),
+    new Question ('Descartes said ...', [
+      { text: 'The only thing that I know, is that I know nothing ', correct: true },
+      { text: 'The only thing that I know, is that I know nothing … but I suspect of a lot of sh**. ', correct: false },
+      { text: 'I know some things and a suspect of a lot too', correct: false },
+      { text: 'I don´t know anything at all, I am a dumb ass!!!)', correct: false },
+       ]),
 ];
-// console.log(this.questions)
-// console.log(this.questions[1].question) // --->>>>>>>>>> OK consigo aceder à variavel questions.
 }
 
 setNextQuestion() {
 this.resetState()                 
-// console.log(this.questions[1].question) // --->>>>>>>>>> OK daqui também consigo aceder à variavel questions.
 }
 
 resetState(){
@@ -51,8 +59,8 @@ resetState(){
 }
 
 showQuestion() { 
-    this.questionElement.innerText = this.questions[1].question // substitute later on for a random index
-    this.questions[1].answers.forEach(answer => {
+    this.questionElement.innerText = this.questions[this.index].question // substitute later on for a random index
+    this.questions[this.index].answers.forEach(answer => {
         const button = document.createElement('button') // Creates new buttons
         button.innerText = answer.text // Sets the text of each button equal to each one of the answers to a question
         button.classList.add('btn')    // Adds a class-"btn"- to each one of the new buttons
