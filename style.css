@@ -19,6 +19,7 @@ canvas {
 }
 
 
+
 #buttons {
   display: flex;
   flex-direction: column;
@@ -30,23 +31,23 @@ canvas {
     font-size: 20px;
     background-color: #870007;
     color: #fff;
-    padding: 20px 40px;
+    padding: 10px 40px;
     border: 0;
     box-shadow: 0;
     border-radius: 5px;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   #continue-button {
     font-size: 20px;
     background-color: #000d87;
     color: #fff;
-    padding: 20px 40px;
+    padding: 10px 40px;
     border: 0;
     box-shadow: 0;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 10px;
     display: none;
   }
@@ -60,13 +61,17 @@ canvas {
     max-height: 200px
  }
 
- .logo-img {
+ .arkaquiz-logo{
     height: auto;
     width: auto;
-    max-width: 300px; /*USE min-width and min-height TO INCREASE SIZE and max-width and max-height TO DECREASE SIZE;*/
-    max-height: 300px;
-    padding: 20px;
+    max-width: 350px; /*USE min-width and min-height TO INCREASE SIZE and max-width and max-height TO DECREASE SIZE;*/
+    max-height: 350px;
+    padding: 10px;
  }
+
+ /* .quiz-logo{
+  display: none;
+} */
 
  .game-intro {
      display: flex;
@@ -76,13 +81,28 @@ canvas {
  }
 
  .game-intro p {
-    font-size: 25px;
+    font-size: 12px;
     font-family: "Verdana";
+    color: rgb(113, 19, 126);
+    font-weight: bold;
+    border: 1px solid rgb(164, 80, 175);
+    padding: 5px;
+    border-radius: 5px;
   }
 
-#game-board {
+  .game-intro h2 {
+    color: rgb(127, 18, 141);
+    border: 2px solid rgb(127, 18, 141);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+  }
+
+/* #game-board {
   border: 1px dashed blue;
-}
+} */
 
   /* #canvas {
     display: none;
@@ -92,7 +112,7 @@ canvas {
   #quiz-container {
     width: 400px;
     height: 600px;
-    border: 1px solid red;
+    border: 1px solid black;
     background-color: silver;
     flex-direction: column;
     justify-content: center;
@@ -102,11 +122,14 @@ canvas {
  #question {
    border: 2px solid yellow;
    margin-bottom: 20px;
+   background-color:rgb(230, 230, 99);
+   border-radius: 5px;
  }
 
  #wright-wrong{
    border: 2px solid green;
    margin-bottom: 20px;
+   background-color: white;
  }
 
 
@@ -150,4 +173,13 @@ canvas {
   padding: 10px 20px;
 }
 
+#chosen-option{
+  margin-bottom: 10px;
+  border: solid 1px black;
+  background-color: white;
+}
+
+/* #back-arka{
+  border-radius: 5px;
+} */
 

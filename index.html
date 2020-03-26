@@ -3,52 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Arka-Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-intro">
 
-        <img src="./images/arkanoid_logo.png" alt="" class="logo-img" />
-        <br />
+        <!-- <img src="./images/arkanoid_logo.png" alt="" class="logo-img" />
+        <img src="./images/quiz_logo.png" alt="" class="quiz-logo"> -->
+        <img src="./images/ArkaQuiz_logo.jpg" alt="" class="arkaquiz-logo">
+        <!-- <br /> -->
+        <h2>ARKA-QUIZ</h2>
       <div id="buttons">
           <button id="start-button">StartGame</button>
           <button id="continue-button">GoToQuiz</button> <!--button hidden during Arka.-->
       </div>
-        
-
         <p>Use the left and right arrow to control the paddle!</p>
         <img src="./images/arrow_keys.jpg" alt="" class="arrows-img" />
-      
+        <p>In case you let the ball escape <br> you can continue to play the current Arka game <br>
+            You just have to answer the question</p> 
     </div>
-
-
 
     <div id="game-board">
         <img id="img_brick" src="./images/brick_1.jpg" alt="">
         <canvas id="canvas" width="400px" height="600px"></canvas> 
         
-        
         <div id="quiz-container" class="hide">
             <div id="question-container">   <!-- class="hide" -->
                 <div id="question">Question</div>
-                <div id="chosen-option" class="hide"></div>
-                <div id="wright-wrong" class="hide">Wright Or Wrong</div>
                 <div id="answer-buttons" class="btn-grid">
                   <button class="btn">Answer 1</button>
                   <button class="btn">Answer 2</button>
                   <button class="btn">Answer 3</button>
                   <button class="btn">Answer 4</button>
                 </div>
+                <div id="chosen-option" class="hide"></div>
+                <div id="wright-wrong" class="hide">Wright Or Wrong</div>
             </div>
             <div class="controls">
                  <button id="start-btn" class="start-btn btn">Start</button>
                  <button id="next-btn" class="next-btn btn hide">Next</button>
-                 <button id="back-arka" class="hide">GoBackToArka</button>
+                 <!-- <button id="back-arka" class="hide">GoBackToArka</button> -->
             </div>
         </div>
-        
-
     </div>
     
     <script src="./js/questions.js"></script>

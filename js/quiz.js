@@ -1,19 +1,20 @@
 class Quiz {
-    constructor(game){
-        this.question = new Question (this)
-     }
-    start(){
-        document.getElementById("canvas").style.display = "none";
-        document.getElementById("quiz-container").style.display = "flex";
+    constructor(game) {
+      this.game = game;
+      this.question = new Question(game);
     }
-
-    checkAnswer() {
-     if(this.question.startQuiz()) {
-        console.log("I am on my way back and I am returning TRUE")
-       // return true; 
-     } else {
-        console.log("I am on my way back and I am returning FALSE")
-      //  return false;
-     } 
+    start() {
+      document.getElementById("canvas").style.display = "none";
+      document.getElementById("quiz-container").style.display = "flex";
+      this.question.startQuiz();
     }
-}
+    checkAnswer(event) {
+      if (this.question.selectedAnswer(event) === true) {
+        console.log("Clicked Answer is correct");
+        this.game.checkIfGameContinues(true);
+      } else {
+        console.log("Clicked Answer is Wrong!!");
+        this.game.checkIfGameContinues(false);
+      }
+    }
+  }

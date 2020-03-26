@@ -20,6 +20,7 @@ class Player {
 
     setControls() {
         window.addEventListener("keydown", event => {
+            event.preventDefault(); // PB comment. Make your player movement smoother. maybe it was just an issue i have on my small screen but when you push the arrow keys the window shift a little somtimes
             switch (event.keyCode) {
                 case 37:
                     this.speedL = -3;
@@ -30,8 +31,9 @@ class Player {
             }
         });
         window.addEventListener("keyup", event => {
-                    this.speedL = 0;
-                    this.speedR = 0;
+            event.preventDefault();
+            this.speedL = 0;
+            this.speedR = 0;
         });   
     }
 
